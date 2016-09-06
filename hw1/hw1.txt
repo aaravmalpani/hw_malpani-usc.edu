@@ -1,0 +1,28 @@
+Name: Aarav Malpani
+USC ID : malpani@usc.edu
+Homework 1
+
+Part 1:
+
+(a) 1. Looking up information relevant to the course online.
+	4. Asking the course staff for help.
+	8. Copying test cases from my classmates or Piazza when test cases are not graded.
+(b) emacs
+	eclipse
+	sublime
+	Microsoft Visual Studio 
+(c) 2. Each student has 3 late days of which only 1 can be used per HW.
+(d) 2. Complete the normal homework submission form.
+	4. Start the next assignment sooner.
+
+Part 2:
+(a) 3. Terminal (Mac or Linux)
+	1. Git Bash (Windows) 
+(b) git add hw1q2b.cpp
+	git log -3
+(c) since there is no message, git will open the default text editor entered 
+and ask for a message to be entered.
+
+Part 4:
+	
+	5 1 1 1 1
