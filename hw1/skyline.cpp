@@ -35,11 +35,24 @@ int main(int argc, char* argv[])
 	  ss << curr;
 	  ss >> curr;
 	  if (curr == "BUILD") {
-		  int x,y;
+		  float f,k;
 		  string c;
-		  ss >> x;
-		  ss >> y;
+		  ss >> f;
+		  ss >> k;
 		  ss >> c;
+		  if (f - int(f) != 0)
+	  	{
+	  		output << "Error : You can only input int values" << endl;
+	  	}
+	  	else if (k - int(k) != 0)
+	  	{
+	  		output << "Error : You can only input int values" << endl;
+	  	}
+
+	  	else{
+	  		int x = int(f);
+	  		int y = int(k);
+
 		  if (ss.fail() || skyline[x] != NULL) {
 			  output << "Error - incorrect command" << endl;
 		  }
@@ -66,15 +79,33 @@ int main(int argc, char* argv[])
 		  	}
 
 		  }
+		}
 	  }
 	  else if (curr == "EXTEND") {
-	  	int x,y;
+	  	float f,k;
 		  string c;
-		  ss >> x;
-		  ss >> y;
+		  ss >> f;
+		  ss >> k;
 		  ss >> c;
+		  if (f - int(f) != 0)
+	  	{
+	  		output << "Error : You can only input int values" << endl;
+	  	}
+	  	else if (k - int(k) != 0)
+	  	{
+	  		output << "Error : You can only input int values" << endl;
+	  	}
+
+	  	else{
+	  		int x = int(f);
+	  		int y = int(k);
+
 		  if (ss.fail() || skyline[x] == NULL) {
-			  output << "Error - incorrect command" << endl;
+			  output << "Error - incorrect command/Building doesnt exist" << endl;
+		  }
+		  else if (x>=constructionspots || x<0)
+		  {
+		  	output << "Error - not a construction spot" << endl;
 		  }
 		  else
 		  {
@@ -100,14 +131,25 @@ int main(int argc, char* argv[])
 		  		}
 		  		delete [] buffer;
 		   }
+		}
 	  }
 	  else if (curr == "DEMOLISH") {
-	  	int x;
-	  	ss >> x;
+	  	float f;
+	  	ss >> f;
+	  	if (f - int(f) != 0)
+	  	{
+	  		output << "Error : You can only input int values" << endl;
+	  	}
+	  	else{
+	  		int x = int(f);
 	  	if (ss.fail() || skyline[x] == NULL)
 	  	{
-	  		output << "Error : building doesnt exist at " << x << "so cannot demolish!" << endl;
+	  		output << "Error : building doesnt exist at " << x << " so cannot demolish!" << endl;
 	  	}
+	  	else if (x>=constructionspots || x<0)
+		  {
+		  	output << "Error - cannot delete this spot" << endl;
+		  }
 	  	else
 	  	{
 	  		delete [] skyline[x];
@@ -115,9 +157,23 @@ int main(int argc, char* argv[])
 	  		buildingheights[x] = 0;
 	  	}
 	  }
+	  }
 	  else if (curr == "SKYLINE") {
-	  	int y;
-	  	ss >> y;
+	  	float f;
+	  	ss >> f;
+	  	if (f - int(f) != 0)
+	  	{
+	  		output << "Error : You can only input int values" << endl;
+	  	}
+	  	else{
+	  		int y = int(f);
+	  		
+	  	if (y == 0)
+	  	{
+	  		output << "Cannot print floor 0" << endl;
+	  	}
+	  	else
+	  	{
 	  	for (int i = 0; i < constructionspots; ++i)
 	  	{
 	  		if (buildingheights[i] < y)
@@ -130,7 +186,9 @@ int main(int argc, char* argv[])
 	  		}
 	  	}
 	  	output << endl;
+	  	}
 	  }
+	}
 	  else {
 	  }
   }
